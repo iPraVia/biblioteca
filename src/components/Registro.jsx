@@ -6,21 +6,24 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
     const [registroFiltrado,setRegistroFiltrado] = useState([])
     const [idSeleccionado,setIdSeleccionado] = useState(0)
 
+    //Aqui estamos obteniendo el socio que sea seleccionado desde el select
     const getId = (evento) => {
         setIdSeleccionado(evento.target.value)
     }
 
+    //Aqui estaremos ejecutando una busqueda dentro de los registros para mostrar solo los socios
+    //que tengan algun libro solicitado, este useEffect se ejecutara cada vez que haya un cambio en socioFiltrado
     useEffect(()=>{
-        setSocioFiltrado([])
-        socio.findIndex((soc,s) => {
-            registro.findIndex((reg,r) => {
-                if(soc.id === reg.socio.id){
-                    setSocioFiltrado((old)=> [...old,soc])
-                    return true 
+        setSocioFiltrado([])//Vaciamos el listado de los sociosFiltrados, para volver a llenarlo
+        socio.findIndex((soc,s) => {//recorremos el listado de socios
+            registro.findIndex((reg,r) => {//recorremos el listado con los registros
+                if(soc.id === reg.socio.id){//Verificamos por cada socio si tiene algun libro solicitado
+                    setSocioFiltrado((old)=> [...old,soc])//si el socio ha solicitado un libro almacenamos sus datos el el listado de los sociosFiltrados
+                    return true //Cortamos el ciclo para continuar con el siguiente socio
                 }
             })
         })
-    },[socioFiltrado])
+    },[socioFiltrado])//Este useEffect se ejecutara cada vez que socioFiltrado sea modificado
 
     useEffect(()=>{
         setRegistroFiltrado([])
