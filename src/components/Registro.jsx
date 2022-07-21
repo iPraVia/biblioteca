@@ -25,6 +25,7 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
         })
     },[socioFiltrado])//Este useEffect se ejecutara cada vez que socioFiltrado sea modificado
 
+
     useEffect(()=>{
         setRegistroFiltrado([])
         registro.findIndex((reg,r) => {
@@ -36,7 +37,8 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
 
     const devolverLibro = (evento) =>{
         
-        var fechaD = document.querySelector("input[type=date]").value
+        var fechaD = document.querySelector("input[type=date]").value//traemos la fecha desde el input de tipo date en formato string
+        //Creamos un objeto que contendra los datos del socio, del libro, la fecha de solicitud, la fecha de devolucion y su propio id 
         var regHistorial = {"id":historial.at(-1)?(parseInt(historial.at(-1).id)+1).toString():"1","socio":evento.socio,"libro":evento.libro,"fechaS":evento.fecha,"fechaD":fechaD}
         //En esta parte almacenamos un objeto que contiene el socio, el libro la fecha de solicitud y la fecha de devolucion del libro que se ha devuelto
         setHistorial((old)=>[...old,regHistorial])
@@ -62,7 +64,7 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
   return (
     <div>
         <h3>Filtro de Socio</h3>
-        <select onChange={getId}>
+        <select onChange={getId}>{/*Ejecutamos la funcion getId en cada cambio que se genere en el select*/}
             <option>-</option>
             {socioFiltrado.map((valor,index)=>(
                 <option key={valor.id} value={valor.id}>{valor.nombre+ " " +valor.apellido}</option>
@@ -85,6 +87,7 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
                         <td>{valor.libro.titulo}</td>
                         <td>{valor.fecha}</td>
                         <td><input type="date" /></td>
+                        {/*En este boton estamos enviando a la funcion devolverLibro el valor que venga del registro filtrado dependiendo de la iteracion en la que valla*/}
                         <td><button type='button' onClick={() => devolverLibro(valor)}>Devolver</button></td>
                     </tr>
                 ))}
