@@ -1,0 +1,27 @@
+
+•	Consumo de APIs, las cuales estarán disponibles (no deben programarlas) para su uso en el servidor que el 
+    profesor les ha preparado.
+o	NOTA: las APIs son de solo lectura. Deben cargarse solo una vez en su sitio.
+•	A partir de esto, guardar estos datos al momento de iniciar su sitio web en localStorage().
+•	Todos los proyectos presentan 2 tablas como base (que llegarán a ustedes como objetos dentro de un JSON). 
+    Por cada  tabla, deberán programar la posibilidad de:
+o	Visualizar esos datos en una tabla
+o	Permitir el ingreso de nuevos datos (se registran en los datos de localStorage())
+o	Permitir la eliminación de cualquier registro
+
+
+Objetivos por cumplir para este proyecto:
+1.	Agregar una vista para visualizar todas las solicitudes de libros realizadas.
+2.	Agregar una funcionalidad para hacer el préstamo del libro.
+a.	Tener un <select> que permita elegir un socio, y otro <select> que permita elegir un libro, para realizar el préstamo.
+b.	Se debe incluir una fecha de la solicitud realizada. Esto cambiará también el estado “disponible” del libro.
+c.	Al generar la solicitud, esta debe quedar guardada en una lista de objetos que contenga el socio, libro y fecha de la solicitud realizada.
+d.	No se puede solicitar un libro que esté con estado no disponible.
+3.	Agregar una funcionalidad para devolver el libro.
+a.	Pueden hacer un link desde la misma la tabla, que esté disponible solo para aquellos que tienen solicitudes activas de algún libro.
+b.	Quizás quieran hacerlo en una vista nueva. Lo importante es que el libro cambie su estado de disponibilidad y agregar la fecha de devolución a la solicitud.
+4.	En la vista que contiene todas las solicitudes de libros que se han hecho, debe poder marcarse con algún color de fondo llamativo, aquellos libros que están atrasado en su devolución:
+a.	Se considera como atrasado, todo libro que tiene entre su fecha de solicitud y de devolución pasaron más de 2 días.
+
+
+z
