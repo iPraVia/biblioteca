@@ -16,6 +16,8 @@ const IngresarSocio = ({socio,setSocio}) => {
   //Con la funcion setSocio agregamos el nuevo objeto socio, manteniendo los objetos que ya contiene 
   const agregar = () => {
     setSocio((old)=>[...old,{"id":(parseInt(socio.at(-1).id)+1).toString(),"nombre":nombre,"apellido":apellido}])
+    document.querySelector("input[type=text").value
+    alert("SOCIO INGRESADO CON EXITO")
   }
 
   return (

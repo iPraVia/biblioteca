@@ -15,6 +15,7 @@ const IngresarLibro = ({libro,setLibro}) => {
     //al ir registrando libros, el titulo lo campturamos desde el input con la funcion capTexto, y la disponibilidad
     //del libro por logica al momento de ingresarlo debe ser true
     setLibro((old) => [...old,{"id":(parseInt(libro.at(-1).id)+1).toString(),"titulo":textLibro,"disponible":true}])
+    alert("LIBRO INGRESADO CON EXITO")
   }
 
   return (
