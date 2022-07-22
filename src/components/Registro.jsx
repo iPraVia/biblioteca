@@ -27,12 +27,14 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
 
 
     useEffect(()=>{
-        setRegistroFiltrado([])
-        registro.findIndex((reg,r) => {
+        setRegistroFiltrado([])//vaciamos el registroFiltrado
+        registro.findIndex((reg,r) => {//recorremos el array registro objeto por objeto
+            //si lo que tiene el objeto reg.socio.id corresponde con el id del cliente selecciondo
+            //desede el select se agregaran al arreglo todos los libros que este a solicitado
             if(idSeleccionado === reg.socio.id){
                 setRegistroFiltrado((old) => [...old,reg])
             }
-    })},[registroFiltrado])
+    })},[registroFiltrado])//Este useEffect se ejecutara cada vez que registroFiltrado sea modificado
         
 
     const devolverLibro = (evento) =>{
@@ -45,16 +47,25 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
 
         //En esta parte estamos modificando el estado del libro que se esta devolviendo a true y almacenandolo nuevamente
         //en el localStorage 
-        libro.findIndex((l,i)=>{
-            if(parseInt(l.id) === parseInt(regHistorial.libro.id)){
+        libro.findIndex((l,i)=>{//Recorremos el arrego libro objeto por objeto
+            //Verificamos is el objeto libro.id es igual al libro que se esta devolviendo
+            //cambiamos su estado disponible a true antes de ser devuelto para que este disponible nuevamente 
+            if(l.id === regHistorial.libro.id){
                 l.disponible = true
+                //Almacenamos nuevamente el arreglo modificado en el localStorage
                 localStorage.setItem("libro",JSON.stringify(libro))         
             }
         })
         //En esta parte estamos eliminando del registro el libro que se ha devuelto
-        registro.findIndex((reg,index)=>{
+        registro.findIndex((reg,index)=>{//Recorremos el arreglo que contiene el registro de las solicitudes realizadas
+            //Verificamos si lo que esta dentro del objeto registro.socio.id es igual a lo que posee
+            //el objeto regHistorial.socio.id y verificamos tambien si lo que esta dentro del objeto registro.libro.id
+            //es igual a lo que esta en el objeto regHistoria.libro.id
             if((reg.socio.id === regHistorial.socio.id) && (reg.libro.id === regHistorial.libro.id)){
+                //Si la verificacion es correcta eliminamos desde el index que posee el objeto
+                //la cantidad de elementos indicados en el segundo parametro de la funcion splice()
                 registro.splice(index,1)
+                //Volvemos a almacenar el arreglo registro dentro del localStorage
                 localStorage.setItem("registro",JSON.stringify(registro))
             }
         })
@@ -84,6 +95,8 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
                 </tr>
             </thead>
             <tbody>
+                {/*Creamos una fila por cada elemento dentro de registroFiltrado
+                y por cada uno creamos una columna para mostrar los datos que este objeto posee*/}
                 {registroFiltrado.map((valor,index) => (
                     <tr key={valor.id}>
                         <td>{valor.socio.nombre}</td>
