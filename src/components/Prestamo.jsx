@@ -31,13 +31,15 @@ const Prestamo = ( {libro, socio,registro,setRegistro} ) => {
 
   return (
     <>
-        <div>
-            <h3>Prestamo de Libros</h3>
-            <table>
-                <thead>
+        <div className='table-responsive-sm'>
+            <h3>PRESTAMO DE LIBROS</h3>
+            <table className='table table-bordered border-primary' >
+                <thead className='table-dark'>
                     <tr>
-                        <td>Socio</td>
-                        <td>Libro</td>
+                        <td>SOCIO</td>
+                        <td>LIBRO</td>
+                        <td>FECHA</td>
+                        <td>ACCION</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +47,7 @@ const Prestamo = ( {libro, socio,registro,setRegistro} ) => {
                         <td><SelectSocio socio={socio} setCapSocio={setCapSocio}/></td>
                         <td><SelectLibro libro={ldisponible} setCapLibro={setCapLibro}/></td>
                         <td><input type="date"/></td>
-                        <td><button type='button' onClick={solicitarLibro}>Solicitar Libro</button></td>
+                        <td><button type='button' onClick={solicitarLibro}>SOLICITAR LIBRO</button></td>
                     </tr>
                 </tbody>
             </table>

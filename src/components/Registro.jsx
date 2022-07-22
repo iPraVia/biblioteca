@@ -63,21 +63,24 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
 
   return (
     <div>
-        <h3>Filtro de Socio</h3>
+        <h3>FILTRO DE SOCIO</h3>
         <select onChange={getId}>{/*Ejecutamos la funcion getId en cada cambio que se genere en el select*/}
             <option>-</option>
             {socioFiltrado.map((valor,index)=>(
                 <option key={valor.id} value={valor.id}>{valor.nombre+ " " +valor.apellido}</option>
             ))}
         </select>
-        <h3>Libros Prestados</h3>
-        <table>
-            <thead>
+        <br />
+        <br />
+        <h3>LIBROS PRESTADOS</h3>
+        <table className='table table-bordered border-primary'>
+            <thead className='table-dark'>
                 <tr>
-                    <td>Usuario</td>
-                    <td>Libro</td>
-                    <td>Fecha Solicitud</td>
-                    <td>Fecha Devolucion</td>
+                    <td>USUARIO</td>
+                    <td>LIBRO</td>
+                    <td>FECHA SOLICITUD</td>
+                    <td>FECHA DEVOLUCION</td>
+                    <td>ACCION</td>
                 </tr>
             </thead>
             <tbody>
@@ -88,7 +91,7 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
                         <td>{valor.fecha}</td>
                         <td><input type="date" /></td>
                         {/*En este boton estamos enviando a la funcion devolverLibro el valor que venga del registro filtrado dependiendo de la iteracion en la que valla*/}
-                        <td><button type='button' onClick={() => devolverLibro(valor)}>Devolver</button></td>
+                        <td><button type='button' onClick={() => devolverLibro(valor)}>DEVOLVER</button></td>
                     </tr>
                 ))}
             </tbody>

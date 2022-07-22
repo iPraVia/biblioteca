@@ -15,14 +15,14 @@ const Historial = ({historial}) => {
     <>
       <div>
         <h3>Historial de devoluciones</h3>
-        <table>
-          <thead>
+        <table className='table table-bordered border-primary'>
+          <thead className='table-dark'>
             <tr>
               <td>ID</td>
-              <td>Nombre Socio</td>
-              <td>Titulo Libro</td>
-              <td>Fecha Solicitud</td>
-              <td>Fecha Devolucion</td>
+              <td>NOMBRE SOCIO</td>
+              <td>TITULO DEL LIBRO</td>
+              <td>FECHA SOLICITUD</td>
+              <td>FECHA DEVOLUCION</td>
             </tr>
           </thead>
           <tbody>

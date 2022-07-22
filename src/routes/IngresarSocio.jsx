@@ -22,18 +22,19 @@ const IngresarSocio = ({socio,setSocio}) => {
     <>
       <div>
         <h3>Ingresar Socio</h3>
-        <table>
-          <thead>
+        <table className="table table-bordered border-primary table-sm">
+          <thead className='table-dark'>
             <tr>
-              <td>Nombre</td>
-              <td>Apellido</td>
+              <td>NOMBRE</td>
+              <td>APELLIDO</td>
+              <td>ACCION</td>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><input type="text" onChange={getNombre}/></td>
               <td><input type="text" onChange={getApellido}/></td>
-              <td><button type='button' onClick={agregar}>Ingresar</button></td>
+              <td><button type='button' onClick={agregar}>AGREGAR</button></td>
             </tr>
           </tbody>
         </table>

@@ -20,10 +20,11 @@ const IngresarLibro = ({libro,setLibro}) => {
   return (
     <>
       <h3>Ingresar Libro</h3>
-      <table>
-        <thead>
+      <table className="table table-bordered border-primary">
+        <thead  className='table-dark'>
           <tr>
-            <td>Nombre del Libro</td>
+            <td>NOMBRE DEL LIBRO</td>
+            <td>ACCION</td>
           </tr>
         </thead>
         <tbody>
@@ -32,7 +33,7 @@ const IngresarLibro = ({libro,setLibro}) => {
               <input type="text" onChange={capTexto}/>
             </td>
             <td>
-              <button type='button' onClick={agregarLibro}>Agregar</button>
+              <button type='button' onClick={agregarLibro}>AGREGAR</button>
             </td>
           </tr>
         </tbody>
