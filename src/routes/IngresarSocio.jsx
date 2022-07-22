@@ -21,7 +21,7 @@ const IngresarSocio = ({socio,setSocio}) => {
   return (
     <>
       <div>
-        <h3>Ingresar Socio</h3>
+        <h3>INGRESAR SOCIO</h3>
         <table className="table table-bordered border-primary table-sm">
           <thead className='table-dark'>
             <tr>

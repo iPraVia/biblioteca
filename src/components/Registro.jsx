@@ -23,7 +23,7 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
                 }
             })
         })
-    },[socioFiltrado])//Este useEffect se ejecutara cada vez que socioFiltrado sea modificado
+    },[socio,historial])//Este useEffect se ejecutara cada vez que socioFiltrado sea modificado
 
 
     useEffect(()=>{
@@ -34,7 +34,7 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
             if(idSeleccionado === reg.socio.id){
                 setRegistroFiltrado((old) => [...old,reg])
             }
-    })},[registroFiltrado])//Este useEffect se ejecutara cada vez que registroFiltrado sea modificado
+    })},[idSeleccionado,historial])//Este useEffect se ejecutara cada vez que registroFiltrado sea modificado
         
 
     const devolverLibro = (evento) =>{

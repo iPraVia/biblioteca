@@ -19,7 +19,7 @@ const IngresarLibro = ({libro,setLibro}) => {
 
   return (
     <>
-      <h3>Ingresar Libro</h3>
+      <h3>INGRESAR LIBRO</h3>
       <table className="table table-bordered border-primary">
         <thead  className='table-dark'>
           <tr>
