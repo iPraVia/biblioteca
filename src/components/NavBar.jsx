@@ -15,19 +15,19 @@ const NavBar = ({libro,setLibro,socio,setSocio,registro,setRegistro,historial,se
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/solicitar">Solicitar Libro</Link>
+                                <Link className="nav-link" to="/solicitar">SOLICITAR LIBRO</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/devolver">Devolver Libro</Link>
+                                <Link className="nav-link" to="/devolver">DEVOLVER LIBRO</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/ingresarSocio">Ingresar Socio</Link>
+                                <Link className="nav-link" to="/ingresarSocio">INGRESAR SOCIO</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/ingresarLibro">Ingresar Libro</Link>
+                                <Link className="nav-link" to="/ingresarLibro">INGRESAR LIBRO</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/historial">Historial</Link>
+                                <Link className="nav-link" to="/historial">HISTORIAL</Link>
                             </li>
                         </ul>
                     </div>
