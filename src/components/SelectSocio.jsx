@@ -8,9 +8,11 @@ const SelectSocio = ({ socio, setCapSocio }) => {
 
   return (
     <>
-      <select onChange={getSocio}>
-        <option>-</option>
-          {socio.map((e,i) => (<option key={e.id} value={e.id }>{e.nombre + " " + e.apellido }</option>))}
+      <select onChange={getSocio} className="form-select">
+        <option>- Elige el Socio -</option>
+          {
+            socio.map((e,i) => (<option key={e.id} value={e.id }>{e.nombre + " " + e.apellido }</option>))
+          }
       </select>
     </>
   )

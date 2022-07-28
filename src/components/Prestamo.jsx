@@ -36,6 +36,8 @@ const Prestamo = ( {libro, socio,registro,setRegistro} ) => {
         })
         //para entender esta linea ir a "./routes/IngresarLibro.jsx" linea 12 - 16
         setRegistro((old) => [...old,{"id":registro.at(-1)?(parseInt(registro.at(-1).id)+1).toString():"1","socio":socioSeleccionado[0],"libro":libroSeleccionado[0],"fecha":fechaActual}])
+        alert("Libro Solicitado exitosamente")
+        document.querySelectorAll("input").forEach((valor,index)=>valor.value = "")
     }
 
   return (
@@ -48,15 +50,15 @@ const Prestamo = ( {libro, socio,registro,setRegistro} ) => {
                         <td>SOCIO</td>
                         <td>LIBRO</td>
                         <td>FECHA</td>
-                        <td>ACCION</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><SelectSocio socio={socio} setCapSocio={setCapSocio}/></td>
                         <td><SelectLibro libro={ldisponible} setCapLibro={setCapLibro}/></td>
-                        <td><input type="date"/></td>
-                        <td><button type='button' onClick={solicitarLibro}>SOLICITAR LIBRO</button></td>
+                        <td><input type="date" className="form-control"/></td>
+                        <td><button type='button' className="btn btn-outline-primary" onClick={solicitarLibro}>SOLICITAR LIBRO</button></td>
                     </tr>
                 </tbody>
             </table>

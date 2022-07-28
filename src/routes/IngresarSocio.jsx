@@ -16,8 +16,8 @@ const IngresarSocio = ({socio,setSocio}) => {
   //Con la funcion setSocio agregamos el nuevo objeto socio, manteniendo los objetos que ya contiene 
   const agregar = () => {
     setSocio((old)=>[...old,{"id":(parseInt(socio.at(-1).id)+1).toString(),"nombre":nombre,"apellido":apellido}])
-    document.querySelector("input[type=text").value
     alert("SOCIO INGRESADO CON EXITO")
+    document.querySelectorAll("input[type=text]").forEach((valor,index)=>valor.value = "")
   }
 
   return (
@@ -34,9 +34,9 @@ const IngresarSocio = ({socio,setSocio}) => {
           </thead>
           <tbody>
             <tr>
-              <td><input type="text" onChange={getNombre}/></td>
-              <td><input type="text" onChange={getApellido}/></td>
-              <td><button type='button' onClick={agregar}>AGREGAR</button></td>
+              <td><input type="text" className="form-control" onChange={getNombre}/></td>
+              <td><input type="text" className="form-control" onChange={getApellido}/></td>
+              <td className='t_d'><button type='button' className="btn btn-outline-primary" onClick={agregar}>AGREGAR</button></td>
             </tr>
           </tbody>
         </table>

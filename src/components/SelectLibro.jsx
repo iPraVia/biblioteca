@@ -8,9 +8,11 @@ const SelectLibro = ({ libro, setCapLibro }) => {
 
   return (
     <>
-      <select onChange={getLibro}>
-        <option>-</option>
-        {libro.map((e,i) => (<option key={e.id} value={e.id}>{e.titulo}</option>))}
+      <select onChange={getLibro} className="form-select">
+        <option>- Elige el Libro -</option>
+        {
+          libro.map((e,i) => (<option key={e.id} value={e.id}>{e.titulo}</option>))
+        }
       </select>
     </>
   )

@@ -25,7 +25,6 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
         })
     },[socio,historial])//Este useEffect se ejecutara cada vez que socioFiltrado sea modificado
 
-
     useEffect(()=>{
         setRegistroFiltrado([])//vaciamos el registroFiltrado
         registro.findIndex((reg,r) => {//recorremos el array registro objeto por objeto
@@ -34,11 +33,12 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
             if(idSeleccionado === reg.socio.id){
                 setRegistroFiltrado((old) => [...old,reg])
             }
-    })},[idSeleccionado,historial])//Este useEffect se ejecutara cada vez que registroFiltrado sea modificado
+        })
+    },[idSeleccionado,historial])//Este useEffect se ejecutara cada vez que registroFiltrado sea modificado
         
 
     const devolverLibro = (evento) =>{
-        
+         
         var fechaD = document.querySelector("input[type=date]").value//traemos la fecha desde el input de tipo date en formato string
         //Creamos un objeto que contendra los datos del socio, del libro, la fecha de solicitud, la fecha de devolucion y su propio id 
         var regHistorial = {"id":historial.at(-1)?(parseInt(historial.at(-1).id)+1).toString():"1","socio":evento.socio,"libro":evento.libro,"fechaS":evento.fecha,"fechaD":fechaD}
@@ -69,17 +69,20 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
                 localStorage.setItem("registro",JSON.stringify(registro))
             }
         })
+        alert("Libro devuelto exitosamente")
     }
     
 
   return (
-    <div>
+    <div> 
         <h3>FILTRO DE SOCIO</h3>
-        <select onChange={getId}>{/*Ejecutamos la funcion getId en cada cambio que se genere en el select*/}
+        <select onChange={getId} className="form-select">{/*Ejecutamos la funcion getId en cada cambio que se genere en el select*/}
             <option>-</option>
-            {socioFiltrado.map((valor,index)=>(
-                <option key={valor.id} value={valor.id}>{valor.nombre+ " " +valor.apellido}</option>
-            ))}
+            {
+                socioFiltrado.map((valor,index)=>(
+                    <option key={valor.id} value={valor.id}>{valor.nombre+ " " +valor.apellido}</option>
+                ))
+            }
         </select>
         <br />
         <br />
@@ -97,16 +100,18 @@ const Registro = ({registro,historial,setHistorial,libro,socio}) => {
             <tbody>
                 {/*Creamos una fila por cada elemento dentro de registroFiltrado
                 y por cada uno creamos una columna para mostrar los datos que este objeto posee*/}
-                {registroFiltrado.map((valor,index) => (
-                    <tr key={valor.id}>
-                        <td>{valor.socio.nombre}</td>
-                        <td>{valor.libro.titulo}</td>
-                        <td>{valor.fecha}</td>
-                        <td><input type="date" /></td>
-                        {/*En este boton estamos enviando a la funcion devolverLibro el valor que venga del registro filtrado dependiendo de la iteracion en la que valla*/}
-                        <td><button type='button' onClick={() => devolverLibro(valor)}>DEVOLVER</button></td>
-                    </tr>
-                ))}
+                {
+                    registroFiltrado.map((valor,index) => (
+                        <tr key={valor.id}>
+                            <td>{valor.socio.nombre}</td>
+                            <td>{valor.libro.titulo}</td>
+                            <td>{valor.fecha}</td>
+                            <td><input type="date" className="form-control"/></td>
+                            {/*En este boton estamos enviando a la funcion devolverLibro el valor que venga del registro filtrado dependiendo de la iteracion en la que valla*/}
+                            <td><button type='button' className="btn btn-outline-primary" onClick={() => devolverLibro(valor)}>DEVOLVER</button></td>
+                        </tr>
+                    ))
+                }
             </tbody>
         </table>
     </div>

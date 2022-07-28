@@ -38,14 +38,14 @@ function App() {
   return (
     <>
       <NavBar
-      libro={libro}
-      setLibro={setLibro}
-      socio={socio}
-      setSocio={setSocio}
-      registro={registro}
-      setRegistro={setRegistro}
-      historial={historial}
-      setHistorial={setHistorial}
+        libro={libro}
+        setLibro={setLibro}
+        socio={socio}
+        setSocio={setSocio}
+        registro={registro}
+        setRegistro={setRegistro}
+        historial={historial}
+        setHistorial={setHistorial}
       />
     </>
   );

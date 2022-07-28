@@ -15,7 +15,7 @@ const NavBar = ({libro,setLibro,socio,setSocio,registro,setRegistro,historial,se
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/solicitar">SOLICITAR LIBRO</Link>
+                                <Link className="nav-link" to="/">SOLICITAR LIBRO</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/devolver">DEVOLVER LIBRO</Link>
@@ -34,13 +34,14 @@ const NavBar = ({libro,setLibro,socio,setSocio,registro,setRegistro,historial,se
                 </div>
             </nav>
             <Routes>
-                <Route path="/solicitar" 
+                <Route path="/" 
                     element={
                     <SolicitarLibro
                         libro={libro}
                         socio={socio}
                         registro={registro}
-                        setRegistro={setRegistro} />}
+                        setRegistro={setRegistro}
+                    />}
                 />
 
                 <Route path="/devolver" 
@@ -58,8 +59,8 @@ const NavBar = ({libro,setLibro,socio,setSocio,registro,setRegistro,historial,se
                 <Route path="/ingresarSocio" 
                     element={
                     <IngresarSocio 
-                    socio={socio}
-                    setSocio={setSocio}
+                        socio={socio}
+                        setSocio={setSocio}
                     />}
                 />
 

@@ -1,0 +1,30 @@
+* {
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Special Elite', cursive;
+}
+
+#root {
+    width: 90%;
+    margin-top: 2%;
+    margin-left: 5%;
+    border: 1px solid  #2ecc71;
+    border-top-left-radius: 400px;
+    border-bottom-right-radius: 400px;
+}
+
+h3 {
+    padding-top: 20px;
+    border-bottom: 2px solid  #2980b9 ;
+}
+
+.divApp {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid  #2ecc71;
+    border-top-right-radius: 400px;
+    border-bottom-left-radius: 400px;
+}
+
